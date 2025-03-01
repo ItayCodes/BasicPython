@@ -91,6 +91,41 @@ print(x ** y)  # 🔺 Exponentiation (power)
 
 # ==================================================================================================================== #
 
+# 🔄 Augmented Assignment Operators (`+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`)
+# These operators allow modifying a variable without writing redundant expressions.
+
+x = 10
+x += 5  # Equivalent to: x = x + 5
+print(x)  # Output: 15
+
+y = 20
+y -= 3  # Equivalent to: y = y - 3
+print(y)  # Output: 17
+
+z = 4
+z *= 2  # Equivalent to: z = z * 2
+print(z)  # Output: 8
+
+a = 10
+a /= 2  # Equivalent to: a = a / 2
+print(a)  # Output: 5.0 (always float)
+
+b = 10
+b //= 3  # Equivalent to: b = b // 3
+print(b)  # Output: 3 (integer division)
+
+c = 10
+c %= 3  # Equivalent to: c = c % 3
+print(c)  # Output: 1 (remainder after division)
+
+d = 2
+d **= 3  # Equivalent to: d = d ** 3
+print(d)  # Output: 8 (exponentiation)
+
+# These are commonly used in loops and calculations to simplify code and improve efficiency.
+
+# ==================================================================================================================== #
+
 # When coding, logic is a very important factor, it lets our code make decisions based on different factors.
 # This is why we have Conditional Statements!
 # These statements check a condition, which always evaluates to either 'True' or 'False'.
@@ -108,9 +143,105 @@ else:  # Else: If no previous condition was True, execute this
 
 # ==================================================================================================================== #
 
+# There are a few more data types in Python that are really helpful in certain scenarios, here are examples of them:
+# 📜 LIST: Ordered, mutable (can be changed), allows duplicates
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")  # Adding a new item
+fruits.remove("banana")  # Removing an item
+print(fruits)  # ['apple', 'cherry', 'orange']
+print(fruits[0])  # Lists use **zero-based indexing** (first element is at index 0), "apple"
+
+# 🔗 TUPLE: Ordered, immutable (cannot be modified after creation), allows duplicates
+colors = ("red", "green", "blue")
+# colors.append("yellow")  # ❌ This will cause an error (tuples cannot be modified)
+print(colors[1])  # Accessing element: green
+
+# 🔥 SET: Unordered (elements have no fixed position), mutable, and no duplicate values
+# ❌ Sets do NOT support indexing (e.g., unique_numbers[0] will raise an error)
+unique_numbers = {1, 2, 3, 3, 4, 5}  # Duplicates are automatically removed
+print(unique_numbers)  # {1, 2, 4, 5, 6} (order may vary)
+
+# 📖 DICTIONARY: Key-value pairs, mutable, maintains insertion order (Python 3.6+)
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+person["job"] = "Developer"  # Adding a new key-value pair
+print(person["name"])  # Accessing a value: Alice
+print(person)  # {'name': 'Alice', 'age': 25, 'city': 'New York', 'job': 'Developer'}
+
+# ==================================================================================================================== #
+
+# Now let's introduce you to loops, which are very helpful when working with data structures like lists or ranges.
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)  # Will print each fruit in the list, one by one
+
+# Using enumerate() to get both index and value while looping
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")  # Prints index along with the fruit name
+    # 0: apple
+    # 1: banana
+    # 2: cherry
+
+for i in range(5):
+    print(i)  # Will print 0-4, one by one
+
+# Dictionaries can be looped through in multiple ways:
+person = {"name": "Alice", "age": 25, "city": "New York"}
+
+# Only loop through the keys
+for key in person.keys():  # .keys() is optional but improves readability
+    print(key)  # Prints: name, age, city
+
+# Only loop through the values
+for value in person.values():
+    print(value)  # Prints values: Alice, 25, New York
+
+# Looping through both key, value pairs:
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+# Now that we understand for loops, let's learn about while loops.
+
+count = 5
+while count > 0:  # Condition
+    print(f"Countdown: {count}")  # Execute if condition is met
+    count -= 1  # Decrementing count when condition is met
+print("Blast off! 🚀")  # Executes once the while loop stops
+# Countdown: 5
+# Countdown: 4
+# Countdown: 3
+# Countdown: 2
+# Countdown: 1
+# Blast off! 🚀
+
+# You can also use a special keyword called break to stop the loop
+x = 1
+while x <= 5:
+    if x == 3:
+        print("Stopping at 3")
+        break  # Exits the loop immediately; remaining iterations won't run
+    print(x)
+    x += 1
+# 1
+# 2
+# Stopping at 3
+
+# The continue keyword skips the rest of the current iteration and moves to the next one,
+# meaning any code after it in the loop won't execute for that cycle.
+x = 0
+while x < 5:
+    x += 1
+    if x == 3:
+        print("Skipping 3")
+        continue  # Skips printing 3
+    print(x)
+
+# ==================================================================================================================== #
+
 # 🚀 Future Enhancements:
-# ✅ Loops (for, while, conditions, and breaks)
-# ✅ Data Structures (lists, sets, tuples, and dictionaries)
 # ✅ Functions and Error Handling
 # ✅ File Handling (open, read, write, 'with open', different modes)
 # ✅ Modules and Importing
